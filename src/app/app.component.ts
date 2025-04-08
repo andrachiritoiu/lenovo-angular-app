@@ -9,4 +9,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'recipe-app1';
+
+  showMessage() {
+   console.log('Hello') 
+  }
 }
