@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Recipe } from '../interfaces/recipe.interface';
+import { RecipesService } from '../services/recipes.service';
 
 
 @Component({
@@ -14,6 +16,8 @@ export class AddRecipeComponent {
  binding: any;
  localStorageValue:string | null = '';
 
+ constructor(readonly recipeService: RecipesService) {}
+
  addRecipeForm = new FormGroup({
   name:new FormControl('', [Validators.required, Validators.minLength(3)]),
   difficulty:new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -21,6 +25,7 @@ export class AddRecipeComponent {
   prepTimeMinutes:new FormControl(0, [Validators.required, Validators.min(0)]),
 
  });
+
 
 onSubmit(){
 //  if(this.addRecipeForm.valid) console.log(this.addRecipeForm.value);
@@ -36,9 +41,18 @@ const jsonObj={
 
 };
 
-  localStorage.setItem('theme', JSON.stringify(jsonObj));
-  sessionStorage.setItem('theme', 'light');
-  this.localStorageValue = localStorage.getItem('theme');
-}
+//   localStorage.setItem('theme', JSON.stringify(jsonObj));
+//   sessionStorage.setItem('theme', 'light');
+//   this.localStorageValue = localStorage.getItem('theme');
+// }
+
+if(this.addRecipeForm.valid) {
+  console.log(this.addRecipeForm.value);
+  this.recipeService.addDbRecipes(
+    this.addRecipeForm.value as Omit<Recipe, 'id'>,
+  );
 
 }
+}
+}
+
