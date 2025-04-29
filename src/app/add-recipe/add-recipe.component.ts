@@ -12,16 +12,33 @@ import { Validators } from '@angular/forms';
 })
 export class AddRecipeComponent {
  binding: any;
+ localStorageValue:string | null = '';
 
  addRecipeForm = new FormGroup({
-  name:new FormControl('', [Validators.required]),
-  preparationtime:new FormControl(0, [Validators.required, Validators.min(0)]),
+  name:new FormControl('', [Validators.required, Validators.minLength(3)]),
+  difficulty:new FormControl('', [Validators.required, Validators.minLength(3)]),
+  image:new FormControl('', [Validators.required, Validators.minLength(3)]),
+  prepTimeMinutes:new FormControl(0, [Validators.required, Validators.min(0)]),
 
  });
 
 onSubmit(){
- if(this.addRecipeForm.valid) console.log(this.addRecipeForm.value);
-  else console.log('Form is not valid');
+//  if(this.addRecipeForm.valid) console.log(this.addRecipeForm.value);
+//   else console.log('Form is not valid');
+
+const jsonObj={
+  "a":12,
+  "height":180,
+  "test":{
+    a:'another object',
+  }, 
+  array:['1',2,4],
+
+};
+
+  localStorage.setItem('theme', JSON.stringify(jsonObj));
+  sessionStorage.setItem('theme', 'light');
+  this.localStorageValue = localStorage.getItem('theme');
 }
 
 }

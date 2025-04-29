@@ -11,19 +11,22 @@ export class RecipesService {
     name: 'Pizza', 
     image: 'https://cdn.dummyjson.com/recipe-images/1.webp',
     tags: ['Pizza','Italian'],
-    prepTimeMinutes: 20},
+    prepTimeMinutes: 20,
+  difficulty: 'Easy'},
 
     {id: '2', 
       name: 'Salad', 
       image: 'https://cdn.dummyjson.com/recipe-images/2.webp',
       tags: ['Pizza','Italian'],
-      prepTimeMinutes: 20},
+      prepTimeMinutes: 20,
+      difficulty: 'Easy'},
 
       {id: '3', 
         name: 'Cookies', 
         image: 'https://cdn.dummyjson.com/recipe-images/3.webp',
         tags: ['Pizza','Italian'],
-        prepTimeMinutes: 20},
+        prepTimeMinutes: 20,
+        difficulty: 'Easy'},
   ];
   readonly API_URL = 'https://dummyjson.com/recipes';
 

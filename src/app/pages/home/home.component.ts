@@ -2,19 +2,24 @@ import { Component } from '@angular/core';
 import { Recipe } from '../../interfaces/recipe.interface';
 import { RecipesService } from '../../services/recipes.service';
 import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [RecipeCardComponent],
+  imports: [RecipeCardComponent, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   recipes: Recipe[]=[];
   dummyRecipes!: Recipe[];
+  filteredRecipes!: Recipe[] ;
   errorMessage: any = '';
+  searchValue = '';
+  
 
-  constructor(recipesService: RecipesService) {
+  constructor(recipesService: RecipesService, readonly router: Router) {
     this.recipes = recipesService.recipes;
     try{
     recipesService.getAllRecipes().subscribe({
@@ -22,6 +27,7 @@ export class HomeComponent {
         console.log(response);
         //throw new Error('Something happened');
         this.dummyRecipes = response.recipes;
+        this.filteredRecipes = response.recipes;
       },
 
       error:(err) => {
@@ -33,4 +39,14 @@ export class HomeComponent {
       this.errorMessage = err;
     }
   }
+
+filterValues(){
+  this.filteredRecipes = this.dummyRecipes.filter((recipe) =>recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())
+);
+}
+
+redirectToAddRecipe() {
+  this.router.navigateByUrl('add-recipe');
+
+}
 }

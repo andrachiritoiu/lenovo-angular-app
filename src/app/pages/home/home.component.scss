@@ -2,5 +2,15 @@
     display:flex;
     gap:2rem;
     flex-wrap:wrap;
-    justify-content: center;
+
+}
+
+.search-container{
+    display: flex;
+    margin: 3rem;
+    justify-content: space-between;
+
+    input{
+        padding: 1rem;
+    }
 }
