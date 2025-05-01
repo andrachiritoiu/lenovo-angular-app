@@ -1,9 +1,74 @@
-.form-container{
-    display:flex;
+.form-container {
+    display: flex;
     flex-direction: column;
-    width: 300px;
-    border:1px solid rgb(30, 30, 29);
-    border-radius: 2%;
-    background-color: rgba(255, 248, 220, 0.952);
-    padding: 4rem;
+    width: 320px;
+    border: 1px solid rgba(224, 122, 95, 0.2);
+    border-radius: 12px;
+    background-color: rgba(224, 122, 95, 0.95);
+    padding: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    justify-content: center;
 }
+
+.form-container:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background: #fff;
+}
+
+.form-container label {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #fff; 
+}
+
+.form-container input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.form-container button {
+    margin-top: 2rem;
+    padding: 0.6rem;
+    font-size: 1rem;
+    background-color: #fff;
+    color: #e07a5f;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.form-container button:hover {
+    background-color: #F4F1DE;
+}
+
+.back-button {
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    color: #e07a5f;
+    border: 1px solid #e07a5f;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .back-button:hover {
+    background-color: #F4F1DE;
+  }
+  
+  .back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+  }
+

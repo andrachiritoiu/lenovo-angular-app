@@ -1,20 +1,25 @@
+<div class="page">
 <h1>Delicious Recipes</h1>
 
-<h2>Recipes</h2>
-
 <div class="search-container">
+  <h2>Recipes</h2>
   <input type="text" placeholder="Serach container" [(ngModel)]='searchValue' (ngModelChange)="filterValues()"/>
+</div>
+<div>
   <button class="add-button" (click)="redirectToAddRecipe()">Add Recipe</button>
 </div>
+
 <div class="card-container">
   <!-- <app-recipe-card [recipe]="recipes[0]"> </app-recipe-card>  
   <app-recipe-card [recipe]="recipes[1]"> </app-recipe-card>  
   <app-recipe-card [recipe]="recipes[2]"> </app-recipe-card>   -->
 
-  @for (recipe of dbRecipes; track $index){
+  @for (recipe of filteredDbRecipes; track $index){
     <app-recipe-card [recipe]="recipe"> </app-recipe-card>
   } @empty {
     <div>No items to display</div>
   }
 </div>
 {{errorMessage}}
+
+</div>

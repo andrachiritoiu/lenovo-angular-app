@@ -19,6 +19,7 @@ export class HomeComponent {
   dbRecipes!: any[];
   errorMessage: any = '';
   searchValue = '';
+  filteredDbRecipes!: any[];
   
 
   constructor(recipesService: RecipesService, readonly router: Router) {
@@ -48,13 +49,14 @@ export class HomeComponent {
       }
       if (resp.data) {
         this.dbRecipes=resp.data.recipes;
+        this.filteredDbRecipes = [...this.dbRecipes]; // copie
       }
     
   });
   }
 
 filterValues(){
-  this.filteredRecipes = this.dummyRecipes.filter((recipe) =>recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())
+  this.filteredDbRecipes = this.dbRecipes.filter((recipe) =>recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())
 );
 }
 
@@ -62,7 +64,6 @@ redirectToAddRecipe() {
   this.router.navigateByUrl('add-recipe');
 
 }
-
 
 }
 

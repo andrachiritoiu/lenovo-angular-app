@@ -1,5 +1,5 @@
 <div class="card-container" [ngStyle]="{
-    backgroundColor: recipe.prepTimeMinutes >=20 ? 'red':'green',
+    backgroundColor: recipe.prepTimeMinutes >=20 ? '#3D405B':'#81B29A',
 }"
 [ngClass]="{colorWhite : recipe.difficulty === 'Easy'}">
 
@@ -8,5 +8,5 @@
  <img [src]="recipe.image" alt="recipe-image"/>
  <div><b>Preparation time :</b> {{recipe.prepTimeMinutes}} </div>
  <div>Difficulty: {{recipe.difficulty}}</div>
- <button (click)="goToRecipePage()">Tell me more</button>
+ <button (click)="goToRecipePage()" class="tell">Tell me more</button>
 </div>

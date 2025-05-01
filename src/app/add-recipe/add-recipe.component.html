@@ -3,13 +3,14 @@
 <input type="text" [(ngModel)]="binding" />
 {{ binding }} -->
 
+<div class="container">
 <form [formGroup]="addRecipeForm" 
-(ngSubmit)="onSubmit()" 
-class="form-container">
+  (ngSubmit)="onSubmit()" 
+  class="form-container">
 <label>Name</label>
 <input type="text" formControlName="name"/>
 
-<label>Image</label>
+<label>Image URL</label>
 <input type="text" formControlName="image"/>
 
 <label>Difficulty</label>
@@ -21,5 +22,14 @@ class="form-container">
 
 <button type="submit">Submit</button>
 </form>
+</div>
 
-{{localStorageValue}}
+
+<div class="back">
+<button type="button" (click)="goToRecipes()" class="back-button">
+    ← Back to Recipes
+</button>
+
+</div>
+
+<!-- {{localStorageValue}} -->

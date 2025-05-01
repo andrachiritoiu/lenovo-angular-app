@@ -16,3 +16,18 @@
         color: white;
     }
 }
+
+.tell{
+    background-color: #F4F1DE;
+    color: black;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.tell:hover{
+    background-color: #F2CC8F;
+}

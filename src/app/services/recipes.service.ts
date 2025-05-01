@@ -15,7 +15,7 @@ export class RecipesService {
     image: 'https://cdn.dummyjson.com/recipe-images/1.webp',
     tags: ['Pizza','Italian'],
     prepTimeMinutes: 20,
-  difficulty: 'Easy'},
+    difficulty: 'Easy'},
 
     {id: '2', 
       name: 'Salad', 
