@@ -1,12 +1,19 @@
-.page {
-    background-color: #F4F1DE; 
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    height: 100%;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
+    background-color: #F4F1DE; 
+    font-family: "Cal Sans", sans-serif;
   }
-  
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background-color: #F4F1DE;
+    padding-bottom: 2rem;
+  }
 
 .card-container{
     display:flex;

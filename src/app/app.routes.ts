@@ -4,6 +4,8 @@ import { RecipeCardComponent } from './components/recipe-card/recipe-card.compon
 import { RecipePageComponent } from './recipe-page/recipe-page.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { Page404Component } from './page404/page404.component';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 export const routes: Routes = [
 // variabila routes de tip Routes
@@ -13,3 +15,9 @@ export const routes: Routes = [
 {path:'add-recipe', component: AddRecipeComponent},
 {path:'**', component: Page404Component} ,
 ];
+
+@NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+  })
+  export class AppRoutingModule {}
