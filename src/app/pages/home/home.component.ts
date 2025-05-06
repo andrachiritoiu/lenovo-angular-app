@@ -20,12 +20,17 @@ export class HomeComponent {
   errorMessage: any = '';
   searchValue = '';
   filteredDbRecipes!: any[];
+  dbSubscription: any;
   
 
-  constructor(recipesService: RecipesService, readonly router: Router) {
-    this.recipes = recipesService.recipes;
+  constructor(private recipesService: RecipesService, readonly router: Router) {
+    
+  }
+
+  ngOnInit() {
+    this.recipes = this.recipesService.recipes;
     try{
-    recipesService.getAllRecipes().subscribe({
+    this.recipesService.getAllRecipes().subscribe({
       next:(response) => {
         console.log(response);
         //throw new Error('Something happened');
@@ -42,7 +47,7 @@ export class HomeComponent {
       this.errorMessage = err;
     }
 
-    db.subscribeQuery({recipes: {}},(resp)=>{
+    this.dbSubscription=db.subscribeQuery({recipes: {}},(resp)=>{
       if (resp.error) {
         this.errorMessage=resp.error; 
         return;
@@ -53,7 +58,19 @@ export class HomeComponent {
       }
     
   });
-  }
+}
+
+ngOnDestroy() {
+  this.dbSubscription();
+}
+
+// ngOnDestroy(){
+//   try {
+//     this.dbSubscription?.unsubscribe();
+//   } catch (error) {
+//     console.error("Eroare la dezabonare:", error);
+//   }
+// }
 
 filterValues(){
   this.filteredDbRecipes = this.dbRecipes.filter((recipe) =>recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())

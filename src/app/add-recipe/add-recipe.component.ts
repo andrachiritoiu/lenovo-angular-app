@@ -5,11 +5,14 @@ import { Validators } from '@angular/forms';
 import { Recipe } from '../interfaces/recipe.interface';
 import { RecipesService } from '../services/recipes.service';
 import { Router } from '@angular/router';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import{ MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-add-recipe',
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule,  MatSlideToggleModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './add-recipe.component.html',
   styleUrl: './add-recipe.component.scss'
 })
